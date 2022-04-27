@@ -1,0 +1,29 @@
+{
+  "name": "blue-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nesnah1307/blue-it.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nesnah1307/blue-it/issues"
+  },
+  "homepage": "https://github.com/Nesnah1307/blue-it#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "express-handlebars": "^6.0.5",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "prettier-eslint": "^14.0.1",
+    "sequelize": "^6.19.0"
+  }
+}
