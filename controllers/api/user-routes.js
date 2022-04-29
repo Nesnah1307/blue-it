@@ -59,7 +59,7 @@ router.post('/login', (req, res) => {
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No such username exists!' });
+            res.status(400).json({ message: 'That username does not exist!' });
             return;
         }
 
