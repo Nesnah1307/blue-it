@@ -4,12 +4,108 @@
 <head>
     <meta charset="UTF-8" />
     <title>Blue IT</title>
-    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" /> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">BLUE IT</a>
+                </li>
+
+                <li>
+                    <a href="/javascript">
+
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/javascript.svg" alt="javascript icon">
+                        </span>
+                        <p>Javascript</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/css3">
+
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/css3.svg" alt="css3 icon">
+                        </span>
+                        <p>CSS</p>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="/html5">
+
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/html5.svg" alt="html5 icon">
+                        </span>
+                        <p>HTML</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/github">
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/github.svg" alt="github icon">
+                        </span>
+                        <p>Github</p>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="/nodejs">
+
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/nodejs.svg" alt="nodejs icon">
+                        </span>
+                        <p>Nodejs</p>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="/databse">
+
+                        <span class="menu_icon">
+
+                            <img src="/assets/nav_icons/database.svg" alt="database icon">
+                        </span>
+                        <p>Database</p>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="/algorithm">
+
+                        <span class="menu_icon">
+                            <img src="/assets/nav_icons/algorithm.svg" alt="algorithm icon">
+                        </span>
+                        <p>Algorithm</p>
+                    </a>
+                </li>
+                {{#if loggedIn}}
+                <li>
+                    <a href="/algorithm">Logout</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/algorithm">LogIn</a>
+                </li>
+                {{/if}}
+
+
+                <li class="collapse">
+                    <span class="menu_icon left-arr">
+                        <img src="/assets/nav_icons/left-arr.svg" alt="left-arr icon">
+                    </span>
+            </ul>
+        </nav>
+
+    </header>
+
     {{{body}}}
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </html>
