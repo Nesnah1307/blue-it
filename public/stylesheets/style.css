@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Open Sans';
-  background-color: var(--white);
-  display: flex;
+  background-color: white;
+  /* display: flex; */
   /* justify-content: center; */
   /* width: 80%; */
   height: 100vh;
@@ -52,16 +52,16 @@ nav li p {
   margin-top: 10px;
 }
 
-nav ul li:nth-child(-n+8):hover {
+nav ul li:nth-child(-n + 8):hover {
   background-color: var(--blue);
 }
 
-nav ul li:nth-child(-n+8):hover img {
+nav ul li:nth-child(-n + 8):hover img {
   transform: translateX(-50px);
   filter: drop-shadow(rgb(255, 255, 255) 50px 0);
 }
 
-nav ul li:nth-child(-n+8):hover a {
+nav ul li:nth-child(-n + 8):hover a {
   color: white;
 }
 
@@ -76,9 +76,7 @@ nav ul li:nth-child(-n+8):hover a {
 .left-arr-collapse {
   transform: rotate(180deg);
 }
-/* .nav-toggle {
-  transform: translateX(-70%);
-} */
+
 .hide {
   display: none;
 }
@@ -87,159 +85,199 @@ nav ul li:nth-child(-n+8):hover a {
   width: 24px;
 }
 
-/* login page  */
-.login {
-  background-color: var(--white);
-  border-radius: 20px;
-  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
-  height: 400px;
-  max-width: 750px;
-  overflow: hidden;
-  position: relative;
+/* header  */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 50px 0 0;
+  height: 50px;
+}
+
+.logo a {
   width: 100%;
 }
 
-.container_form {
-  height: 100%;
-  position: absolute;
-
-  top: 0;
-  transition: all 0.9s ease-in-out;
+img {
+  width: 100%;
 }
 
-.container--signin {
-  left: 0;
-  width: 50%;
-  z-index: 5;
-}
-
-.form_title {
-  font-weight: 300;
-  margin: 0;
-  margin-bottom: 20px;
-}
-
-.login.right-panel-active .container--signin {
-  transform: translateX(100%);
-}
-
-.container--signup {
-  left: 0;
-  opacity: 0;
-  width: 50%;
-  z-index: 4;
-}
-
-.login.right-panel-active .container--signup {
-  -webkit-animation: show 0.6s;
-  animation: show 0.6s;
-  opacity: 1;
-  transform: translateX(100%);
-  z-index: 8;
-}
-
-.container_overlay {
-  height: 100%;
-  left: 50%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  transition: transform 0.9s ease-in-out;
-  width: 50%;
-  z-index: 100;
-}
-
-.login.right-panel-active .container_overlay {
-  transform: translateX(-100%);
-}
-
-.overlay {
-  background-color: rgba(255, 255, 255, 0.25);
-  /* background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  height: 100%;
-  left: -100%;
-  position: relative;
-  transform: translateX(0);
-  transition: transform 0.9s ease-in-out;
-  width: 200%;
-}
-
-.login.right-panel-active .overlay {
-  transform: translateX(50%);
-}
-
-.overlay_panel {
-  align-items: center;
+header {
+  margin: 20px 0;
+  padding: 0px 30px;
+  width: 100%;
+  height: 70px;
+  /* background-color: pink; */
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  position: relative;
+  height: 25px;
+}
+
+/* 2 rotatations of the menu icon  */
+.rotate {
+  transition: transform 0.5s ease;
+  transform: rotate(180deg);
+}
+
+.rotateReverse {
+  transition: transform 0.5s ease;
+  transform: rotate(0deg);
+}
+
+.menu_icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  transform: translateX(-12px);
+  background: rgb(6, 158, 218) no-repeat center;
+
   position: absolute;
-  text-align: center;
   top: 0;
-  transform: translateX(0);
-  transition: transform 0.9s ease-in-out;
-  width: 50%;
-}
-
-.overlay-left {
-  transform: translateX(-20%);
-}
-
-.login.right-panel-active .overlay-left {
-  transform: translateX(0);
-}
-
-.overlay-right {
-  right: 0;
-  transform: translateX(0);
-}
-
-.login.right-panel-active .overlay-right {
-  transform: translateX(20%);
-}
-
-.btn {
-  background-color: var(--blue);
-  border-radius: 20px;
-  border: 0.2px solid var(--blue-r);
-  color: var(--white);
+  left: 0;
   cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 0.1rem;
-  padding: 15px 50px;
+  border-radius: 2px;
 }
 
-.form > .btn {
-  margin-top: 20px;
+.menu ul {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 25px;
+  left: -12.5px;
+  border-radius: 2px;
 }
 
-.btn:active {
-  transform: scale(0.95);
+.menu ul li {
+  padding: 5px 10px;
+  font-size: 13px;
+  font-size: 10px;
+  cursor: pointer;
 }
 
-.btn:focus {
-  outline: none;
+.menu ul li:hover {
+  background-color: var(--blue);
+  color: white;
 }
 
-.form {
-  background-color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 3rem;
-  height: 100%;
-  text-align: center;
+.search {
+  position: relative;
+  height: 25px;
+  width: 220px;
 }
 
-.login input {
-  /* background-color: #fff; */
-  padding: 0.9rem 0.9rem;
-  margin: 0.5rem 0;
+.search input {
+  position: absolute;
+  left: 0;
   width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  width: 30px;
+  border-radius: 0px 3px 3px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(6, 158, 218);
+  cursor: pointer;
+}
+
+.search-icon img {
+  width: 22px;
+  height: 22px;
+}
+
+.uploadBtn {
+  height: 25px;
+  padding: 0 10px;
+  /* appearance: none; */
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(6, 158, 218);
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .menu {
+    margin-left: 20px;
+    margin-right: auto;
+  }
+
+  .search {
+    margin-right: 20px;
+    margin-left: auto;
+  }
+
+  .menu_icon {
+    display: none;
+  }
+
+  .menu ul {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 25px;
+  }
+
+  .menu ul li {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .search {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .menu {
+    margin-left: 50px;
+  }
+
+  .search {
+    margin-right: 50px;
+  }
+
+  .search {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    max-width: 1000px;
+  }
+
+  .logo {
+    flex: 60px 0 0;
+    height: 60px;
+  }
+
+  .menu ul li {
+    padding: 5px 15px;
+    font-size: 16px;
+  }
+
+  .search {
+    width: 400px;
+    height: 30px;
+  }
+
+  .uploadBtn {
+    height: 30px;
+    font-size: 14px;
+  }
 }

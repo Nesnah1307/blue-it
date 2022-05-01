@@ -4,19 +4,49 @@
 <head>
     <meta charset="UTF-8" />
     <title>Blue IT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="shortcut icon" href="./assets/images/logo.jpg" />
     <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+
 </head>
 
 <body>
     <header>
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/images/header_logo.jpg" alt="Blue IT logo">
+            </a>
+            {{!-- <p>BLUE IT</p> --}}
+        </div>
+
+        <div class="menu">
+            <div class="menu_icon">
+                <img src="/assets/nav_icons/menu.svg" alt="menu icon">
+            </div>
+            <ul>
+                <li>Homepage</li>
+                <li>Posts</li>
+                <li>Dashboard</li>
+                {{!-- <li>Setting</li> --}}
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search Questions">
+            <span class="search-icon">
+                <img src="/assets/nav_icons/search.svg" alt="">
+            </span>
+        </div>
+        <button class="uploadBtn">Upload</button>
+
+
+
+
+
+    </header>
+    <main>
         <nav>
             <ul>
-                <li>
-                    <a href="/">BLUE IT</a>
-                </li>
-
                 <li>
                     <a href="/javascript">
 
@@ -101,11 +131,10 @@
                     </span>
             </ul>
         </nav>
-
-    </header>
-
+    </main>
     {{{body}}}
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/javascripts/menu.js"></script>
 
 </html>
