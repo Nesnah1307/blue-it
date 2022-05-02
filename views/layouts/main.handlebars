@@ -86,7 +86,7 @@
                 </li>
                 {{#if loggedIn}}
                 <li>
-                    <a href="/algorithm">Logout</a>
+                    <a href="/logout">Logout</a>
                 </li>
                 {{else}}
                 <li>
@@ -105,6 +105,9 @@
     </header>
 
     {{{body}}}
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
