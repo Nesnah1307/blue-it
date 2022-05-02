@@ -20,8 +20,4 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('You blue it!'));
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> bc295513d57f1a5a1c3831f3461afd0bc0f359bc
