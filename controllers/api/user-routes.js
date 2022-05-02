@@ -56,11 +56,11 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.username
+            email: req.body.email
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'That username does not exist!' });
+            res.status(400).json({ message: 'That user does not exist!' });
             return;
         }
 
