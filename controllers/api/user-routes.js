@@ -18,14 +18,15 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:username', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
-            id: req.params.id
+            username: req.params.username
         }
     })
         .then(dbUserData => {
+            console.log(dbUserData);
             if (!dbUserData) {
                 res.status(404).json({ message: 'No user found with this id' });
                 return;
