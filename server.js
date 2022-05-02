@@ -2,10 +2,25 @@ const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const sess = {
+  // set in .env as cookie='I stole the cookie'
+  secret: process.env.cookie,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // set up handlebars
