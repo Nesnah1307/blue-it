@@ -13,51 +13,48 @@ module.exports = sequelize => {
       comment: null,
       field: "id"
     },
-    username: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: true,
       defaultValue: null,
-      field: "username"
+      field: "content"
     },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "email"
-    },
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "password"
-    },
-    membership: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: null,
-      field: "membership"
-    },
-    level_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: null,
-      field: "level_id",
+      field: "user_id",
       references: {
         key: "id",
-        model: "level_model"
+        model: "user_model"
+      }
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: null,
+      field: "post_id",
+      references: {
+        key: "id",
+        model: "post_model"
       }
     }
   };
   const options = {
-    tableName: "user",
+    tableName: "comment",
     comment: "",
     indexes: [{
-      name: "level_id",
+      name: "post_id",
       unique: false,
       type: "BTREE",
-      fields: ["level_id"]
+      fields: ["post_id"]
+    }, {
+      name: "user_id",
+      unique: false,
+      type: "BTREE",
+      fields: ["user_id"]
     }]
   };
-  const UserModel = sequelize.define("user_model", attributes, options);
-  return UserModel;
+  const CommentModel = sequelize.define("comment_model", attributes, options);
+  return CommentModel;
 };

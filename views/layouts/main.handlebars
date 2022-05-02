@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/normalize.css" />
     <link rel="stylesheet" href="/stylesheets/login.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/tablist.css" />
 
 </head>
 
@@ -17,18 +18,17 @@
             <a href="/">
                 <img src="/assets/images/header_logo.jpg" alt="Blue IT logo">
             </a>
-            {{!-- <p>BLUE IT</p> --}}
         </div>
 
         <div class="menu">
-            <div class="menu_icon">
+            <div class="menu_small">
                 <img src="/assets/nav_icons/menu.svg" alt="menu icon">
             </div>
             <ul>
                 <li>Homepage</li>
                 <li>Posts</li>
                 <li>Dashboard</li>
-                {{!-- <li>Setting</li> --}}
+
             </ul>
         </div>
         <div class="search">
@@ -39,100 +39,12 @@
         </div>
         <button class="uploadBtn">Upload</button>
 
-
-
-
-
     </header>
-    <main>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/javascript">
-
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/javascript.svg" alt="javascript icon">
-                        </span>
-                        <p>Javascript</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/css3">
-
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/css3.svg" alt="css3 icon">
-                        </span>
-                        <p>CSS</p>
-                    </a>
-                </li>
-                <li>
-
-                    <a href="/html5">
-
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/html5.svg" alt="html5 icon">
-                        </span>
-                        <p>HTML</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/github">
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/github.svg" alt="github icon">
-                        </span>
-                        <p>Github</p>
-                    </a>
-                </li>
-                <li>
-
-                    <a href="/nodejs">
-
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/nodejs.svg" alt="nodejs icon">
-                        </span>
-                        <p>Nodejs</p>
-                    </a>
-                </li>
-                <li>
-
-                    <a href="/databse">
-
-                        <span class="menu_icon">
-
-                            <img src="/assets/nav_icons/database.svg" alt="database icon">
-                        </span>
-                        <p>Database</p>
-                    </a>
-                </li>
-                <li>
-
-                    <a href="/algorithm">
-
-                        <span class="menu_icon">
-                            <img src="/assets/nav_icons/algorithm.svg" alt="algorithm icon">
-                        </span>
-                        <p>Algorithm</p>
-                    </a>
-                </li>
-                {{#if loggedIn}}
-                <li>
-                    <a href="/algorithm">Logout</a>
-                </li>
-                {{else}}
-                <li>
-                    <a href="/algorithm">LogIn</a>
-                </li>
-                {{/if}}
-
-
-                <li class="collapse">
-                    <span class="menu_icon left-arr">
-                        <img src="/assets/nav_icons/left-arr.svg" alt="left-arr icon">
-                    </span>
-            </ul>
-        </nav>
+    <main>   
+        {{{body}}}
     </main>
-    {{{body}}}
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/javascripts/menu.js"></script>
