@@ -1,14 +1,18 @@
 const { Encounter } = require('../models');
 const generateData = () => {
   let dataArray = [];
-  for (let i = 0; i < 50; i++) {
-    dataArray.push({
-      user_id: Math.floor(Math.random() * 20 + 1),
-      post_id: Math.floor(Math.random() * 50 + 1),
-    });
+  for (let i = 0; i < 200; i++) {
+    dataArray.push(
+      JSON.stringify({
+        user_id: Math.floor(Math.random() * 30 + 1),
+        post_id: Math.floor(Math.random() * 100 + 1),
+      })
+    );
   }
-  return dataArray;
+  return [...new Set(dataArray)].map(el => JSON.parse(el));
 };
+
+console.log(generateData());
 
 const seedEncounters = () => Encounter.bulkCreate(generateData(), { individualHooks: true });
 

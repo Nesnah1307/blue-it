@@ -8,8 +8,6 @@ const dataArray = ['HTML', 'CSS', 'Javascript', 'Typescript', 'C++', 'C#', 'Java
     })
 );
 
-console.log(dataArray);
-
 const seedLanguages = () => Language.bulkCreate(dataArray, { individualHooks: true });
 
 module.exports = seedLanguages;
