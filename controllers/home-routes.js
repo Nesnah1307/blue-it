@@ -12,4 +12,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/questions', (req, res) => {
+  res.render('single-post')
+})
+
 module.exports = router;
