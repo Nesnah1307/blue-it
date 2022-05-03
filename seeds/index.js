@@ -5,8 +5,8 @@ const seedEncounters = require('./encounter_seeds');
 const seedLanguages = require('./language_seeds');
 const seedStars = require('./star_seeds');
 const seedTypes = require('./type_seeds');
-const sequelize = require('../config/connection');
 const seedComments = require('./comment_seeds');
+const sequelize = require('../config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
