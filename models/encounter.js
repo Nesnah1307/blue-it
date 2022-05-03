@@ -1,54 +1,38 @@
-const {
-  DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-module.exports = sequelize => {
+class Encounter extends Model {}
+
   const attributes = {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
-      comment: null,
-      field: "id"
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
-      field: "user_id",
       references: {
-        key: "id",
-        model: "user_model"
-      }
+        key: 'id',
+        model: 'user',
+      },
     },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
-      field: "post_id",
       references: {
-        key: "id",
-        model: "post_model"
-      }
-    }
+        key: 'id',
+        model: 'post',
+      },
+    },
   };
   const options = {
-    tableName: "encounter",
-    comment: "",
-    indexes: [{
-      name: "post_id",
-      unique: false,
-      type: "BTREE",
-      fields: ["post_id"]
-    }, {
-      name: "user_id",
-      unique: false,
-      type: "BTREE",
-      fields: ["user_id"]
-    }]
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'encounter',
   };
-  const EncounterModel = sequelize.define("encounter_model", attributes, options);
-  return EncounterModel;
-};
+
+Encounter.init(attributes, options);
+module.exports = Encounter;

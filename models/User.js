@@ -1,63 +1,47 @@
-const {
-  DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-module.exports = sequelize => {
-  const attributes = {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: true,
-      comment: null,
-      field: "id"
+class User extends Model {}
+
+const attributes = {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  username: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+    unique: true,
+  },
+  email: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true,
     },
-    username: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "username"
+  },
+  password: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+    validate: {
+      // this means the password must be at least four characters long
+      len: [5, 10],
     },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "email"
-    },
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "password"
-    },
-    membership: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: null,
-      field: "membership"
-    },
-    level_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: null,
-      field: "level_id",
-      references: {
-        key: "id",
-        model: "level_model"
-      }
-    }
-  };
-  const options = {
-    tableName: "user",
-    comment: "",
-    indexes: [{
-      name: "level_id",
-      unique: false,
-      type: "BTREE",
-      fields: ["level_id"]
-    }]
-  };
-  const UserModel = sequelize.define("user_model", attributes, options);
-  return UserModel;
+  },
+  membership: {
+    type: DataTypes.BOOLEAN,
+    allowNull: true,
+  },
 };
+const options = {
+  sequelize,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'user',
+};
+
+User.init(attributes, options);
+module.exports = User;

@@ -1,54 +1,38 @@
-const {
-  DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-module.exports = sequelize => {
+class Star extends Model {}
+
   const attributes = {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
-      comment: null,
-      field: "id"
     },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: null,
-      field: "post_id",
       references: {
-        key: "id",
-        model: "post_model"
-      }
+        key: 'id',
+        model: 'post',
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: null,
-      field: "user_id",
       references: {
-        key: "id",
-        model: "user_model"
-      }
-    }
+        key: 'id',
+        model: 'user',
+      },
+    },
   };
   const options = {
-    tableName: "star",
-    comment: "",
-    indexes: [{
-      name: "user_id",
-      unique: false,
-      type: "BTREE",
-      fields: ["user_id"]
-    }, {
-      name: "post_id",
-      unique: false,
-      type: "BTREE",
-      fields: ["post_id"]
-    }]
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'star',
   };
-  const StarModel = sequelize.define("star_model", attributes, options);
-  return StarModel;
-};
+
+Star.init(attributes, options);
+module.exports = Star;

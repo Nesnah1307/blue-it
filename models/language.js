@@ -1,30 +1,25 @@
-const {
-  DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-module.exports = sequelize => {
+class Language extends Model {}
+
   const attributes = {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
-      comment: null,
-      field: "id"
     },
     name: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      defaultValue: null,
-      field: "name"
-    }
+      type: DataTypes.STRING(32),
+      // allowNull: false,
+    },
   };
   const options = {
-    tableName: "language",
-    comment: "",
-    indexes: []
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'language',
   };
-  const LanguageModel = sequelize.define("language_model", attributes, options);
-  return LanguageModel;
-};
+Language.init(attributes, options);
+module.exports = Language;

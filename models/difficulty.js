@@ -1,30 +1,27 @@
-const {
-  DataTypes
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-module.exports = sequelize => {
+class Difficulty extends Model {}
+
   const attributes = {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
-      comment: null,
-      field: "id"
     },
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      defaultValue: null,
-      field: "name"
-    }
+    },
   };
   const options = {
-    tableName: "difficulty",
-    comment: "",
-    indexes: []
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'difficulty',
   };
-  const DifficultyModel = sequelize.define("difficulty_model", attributes, options);
-  return DifficultyModel;
-};
+
+
+Difficulty.init(attributes, options);
+module.exports = Difficulty;
