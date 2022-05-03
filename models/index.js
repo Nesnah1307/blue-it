@@ -8,7 +8,7 @@ const Star = require('./Star');
 const Type = require('./Type');
 const User = require('./User');
 
-User - Post
+// User - Post
 User.hasMany(Post, {
   foreignKey: 'creator_id',
   onDelete: 'SET NULL',

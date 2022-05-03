@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seeds": "node seeds/index.js",
-    "bsync": "browser-sync start --proxy \"localhost:3001\" --files \"**\"",
-    "sequelize-automate": "sequelize-automate"
+    "watch":"nodemon server.js",
+    "bsync": "browser-sync start --proxy \"localhost:3001\" --files \"**\""
   },
   "repository": {
     "type": "git",
