@@ -12,8 +12,6 @@ const generateData = () => {
   return [...new Set(dataArray)].map(el => JSON.parse(el));
 };
 
-console.log(generateData());
-
 const seedEncounters = () => Encounter.bulkCreate(generateData(), { individualHooks: true });
 
 module.exports = seedEncounters;

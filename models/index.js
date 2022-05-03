@@ -8,7 +8,7 @@ const Star = require('./Star');
 const Type = require('./Type');
 const User = require('./User');
 
-// User - Post
+User - Post
 User.hasMany(Post, {
   foreignKey: 'creator_id',
   onDelete: 'SET NULL',
@@ -52,45 +52,45 @@ Comment.belongsTo(Post, {
 });
 
 
-// // User - Comment 
-// User.hasMany(Comment, {
-//   foreignKey: 'user_id',
-//   onDelete: 'SET NULL',
-// });
+// User - Comment 
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL',
+});
 
-// Comment.belongsTo(User, {
-//   foreignKey: 'user_id',
-// });
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+});
 
-// // Post - Difficulty 
-// Post.hasOne(Difficulty, {
-//   foreignKey: 'difficulty_id',
-//   onDelete: 'SET NULL',
-// });
+// Post - Difficulty 
+Difficulty.hasMany(Post, {
+  foreignKey: 'difficulty_id',
+  onDelete: 'SET NULL',
+});
 
-// Difficulty.belongsTo(Post, {
-//   foreignKey: 'difficulty_id',
-// });
+Post.belongsTo(Difficulty, {
+  foreignKey: 'difficulty_id',
+});
 
-// // Post - Type 
-// Post.hasOne(Type, {
-//   foreignKey: 'type_id',
-//   onDelete: 'SET NULL',
-// });
+// Post - Type 
+Type.hasMany(Post, {
+  foreignKey: 'type_id',
+  onDelete: 'SET NULL',
+});
 
-// Type.belongsTo(Post, {
-//   foreignKey: 'type_id',
-// });
+Post.belongsTo(Type, {
+  foreignKey: 'type_id',
+});
 
-// // Post - Language 
-// Post.hasOne(Language, {
-//   foreignKey: 'language_id',
-//   onDelete: 'SET NULL',
-// });
+// Post - Language 
+Language.hasMany(Post, {
+  foreignKey: 'language_id',
+  onDelete: 'SET NULL',
+});
 
-// Language.belongsTo(Post, {
-//   foreignKey: 'language_id',
-// });
+Post.belongsTo(Language, {
+  foreignKey: 'language_id',
+});
 
 
 
