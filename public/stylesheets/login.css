@@ -8,6 +8,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  margin:60px auto;
 }
 
 .container_form {
@@ -117,7 +118,7 @@
   background-color: var(--blue);
   border-radius: 20px;
   border: 0.2px solid var(--blue-r);
-  color: var(--white);
+  color: white;
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: bold;

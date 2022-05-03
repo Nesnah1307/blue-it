@@ -195,19 +195,20 @@ main > * {
   font-size: 12px;
 }
 
-.info-row > * {
+.post-type,
+.post-language {
   border: 1px solid grey;
   border-radius: 3px;
   padding: 3px 5px;
 }
 
-.info-row .type {
+.post-type {
   border-color: rgb(184, 234, 143);
   background-color: rgb(246, 255, 236);
   color: rgb(56, 158, 14);
 }
 
-.info-row .language {
+.post-language {
   border-color: rgb(217, 217, 217);
   background-color: rgb(250, 250, 250);
 }
@@ -255,6 +256,105 @@ main > * {
   width: 100%;
   height: 100%;
   text-align: center;
+}
+
+.post-info {
+  background-color: white;
+}
+
+/* single-post  */
+.question-summary {
+  font-size: 13px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+
+.question-summary > *:nth-child(2n + 1) {
+  margin: 0 15px;
+}
+
+.question-summary .splitter {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: rgb(217, 217, 217);
+  width: 1px;
+  height: 15px;
+}
+
+.question-head {
+  margin-top: 15px;
+  padding: 0 15px;
+}
+.question-body {
+  border-bottom: 1px solid rgb(241, 241, 241);
+  padding: 15px;
+}
+
+.question-action {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px 0;
+}
+
+.question-action > div {
+  flex: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid rgb(241, 241, 241);
+}
+
+.question-action > div:last-child {
+  border-right: none;
+}
+
+.question-action > *:hover img {
+  transform: translateX(-180px);
+  filter: drop-shadow(rgb(6, 158, 218) 180px 0);
+}
+
+.question-action:hover .data_icon {
+  overflow: hidden;
+}
+
+.question-action > *:hover span {
+  color: rgb(6, 158, 218);
+}
+
+.question-action .data_icon {
+  height: 25px;
+}
+
+.question-action span {
+  font-size: 13px;
+  line-height: 25px;
+}
+
+/* comment section in single-post */
+.comment-section {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.comment-action {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(241, 241, 241);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-action button {
+  color: white;
+  border: none;
+  background-color: rgb(6, 158, 218);
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.single-comment {
+  border-bottom: 1px solid rgb(241, 241, 241);
+  padding: 15px;
 }
 
 @media screen and (min-width: 600px) {

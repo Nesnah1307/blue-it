@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/questions', (req, res) => {
+router.get('/questions/:id', (req, res) => {
   res.render('single-post')
 })
 
