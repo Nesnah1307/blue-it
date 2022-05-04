@@ -2,6 +2,7 @@
 
 
 <section class="post-list">
-    {{>post-list-item}}
-    {{>post-list-item}}
+    {{#each posts as |post|}}
+    {{> post-list-item post}}
+    {{/each}}
 </section>

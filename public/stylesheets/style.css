@@ -75,7 +75,7 @@ header {
   display: none;
   position: absolute;
   background-color: white;
-  top: 25px;
+  top: 35px;
   left: -12.5px;
   border-radius: 2px;
 }
@@ -85,6 +85,14 @@ header {
   font-size: 13px;
   font-size: 10px;
   cursor: pointer;
+}
+
+.menu ul li a {
+  color: black;
+}
+
+.menu ul li:hover a {
+  color: white;
 }
 
 .menu ul li:hover {
@@ -133,12 +141,16 @@ header {
   border: none;
   border-radius: 3px;
   background-color: rgb(6, 158, 218);
-  color: white;
   cursor: pointer;
 }
 
-/* nav-tab */
+.uploadBtn a {
+  color: white;
+  font-size: 13px;
+  line-height: 32px;
+}
 
+/* nav-tab */
 main {
   padding: 0px 30px;
   margin: 0 auto;
