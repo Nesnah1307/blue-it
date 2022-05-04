@@ -9,19 +9,19 @@
         </div>
         <div class="info-row2">
             <span class="difficulty">
-               Level: {{difficulty.name}} |</span>
+                Level: {{difficulty.name}} |</span>
             <span class="postData">{{format_date created_at}}</sp>
         </div>
         <div class="data-row">
-            <div class="star" alt="add to your collection">
+            <div class="star" title="{{encounter_count}} people has encountered this question">
                 <div class="data_icon">
-                    <img src="assets/post_icons/eye.svg" alt="">
+                    <img src="assets/post_icons/eye.svg">
                 </div>
                 <span>
                     {{encounter_count}}
                 </span>
             </div>
-            <div class="comment">
+            <div class="comment" title="{{comments.length}} {{format_plural " comment" comments.length}}">
                 <div class="data_icon">
                     <img src="assets/post_icons/comment.svg" alt="">
                 </div>
@@ -29,7 +29,7 @@
                     {{comments.length}}
                 </span>
             </div>
-            <div class="star">
+            <div class="star" title="{{star_count}} {{format_person star_count}} starred this question">
                 <div class="data_icon">
                     <img src="assets/post_icons/star.svg" alt="">
                 </div>
