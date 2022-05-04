@@ -1,23 +1,51 @@
 <section class="new-question">
+    <p>Upload your questions</p>
     <form id="addQuestion">
-        <div class="title-part"></div>
-        <label for="title">Title</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <div class="language-part">
-            <label for="">Difficulty</label>
-            <div>
+        <div class="title-part">
+            <label for="title">Title:</label>
+            <div class="content">
+                <input type="text" name="" id="title">
+            </div>
+        </div>
+        <div class="answer-part">
+            <label for="answer">Answer:</label>
+
+            <div class="content"> <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="difficulty-part">
+            <label for="">Difficulty:</label>
+            <div class="content">
                 <input type="radio" id="easy" name="difficulty" value="easy" checked>
                 <label for="easy">Easy</label>
                 <input type="radio" id="medium" name="difficulty" value="medium">
-                <label for="huey">Medium</label>
+                <label for="medium">Medium</label>
                 <input type="radio" id="hard" name="difficulty" value="hard">
                 <label for="hard">Hard</label>
             </div>
         </div>
-        <label for="answer">Answer</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        <div class="language-part">
+            <label for="language">Language:</label>
+            
+            <div class="content">
+                <select id="language">
+
+                    <option value="dog">HTML</option>
+                    <option value="cat">CSS</option>
+                    <option value="hamster">C++</option>
+                    <option value="parrot">Javascript</option>
+                    <option value="spider">Typescript</option>
+                    <option value="goldfish">Python</option>
+                    <option value="goldfish">C#</option>
+                    <option value="goldfish">Golang</option>
+                    <option value="goldfish">Java</option>
+                    <option value="goldfish">Other</option>
+                </select>
+            </div>
         </div>
+
+        </div>
+        <button type="submit">Subtmit</button>
     </form>
-
-
 </section>
