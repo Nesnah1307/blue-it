@@ -1,23 +1,27 @@
 const router = require('express').Router();
+const { Post, User, Comment, Star, Type, Language, Difficulty } = require('../../models');
 router.get('/', (req, res) => {
   res.render('dashboard');
 });
 
-
-router.get('/addQuestion', (req, res) => {
-  if (req.session.loggedIn) {
+router.get('/add-question', (req, res) => {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('addQuestion');
+  res.render('add-question', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
-router.get('/editQuestion', (req, res) => {
-  if (req.session.loggedIn) {
+router.get('/edit-question', (req, res) => {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('editQuestion');
+  res.render('edit-question', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;

@@ -1,0 +1,63 @@
+<section class="new-question">
+    <p>Upload your questions</p>
+    <form id="addQuestion">
+        <div class="title-part">
+            <label for="title">Title:</label>
+            <div class="content">
+                <input type="text" name="" id="title">
+            </div>
+        </div>
+        <div class="answer-part">
+            <label for="answer">Answer:</label>
+
+            <div class="content"> <textarea name="" id="answer" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="difficulty-part">
+            <label for="">Difficulty:</label>
+            <div class="content">
+                <input type="radio" id="easy" name="difficulty" value="1">
+                <label for="easy">Easy</label>
+                <input type="radio" id="medium" name="difficulty" value="2">
+                <label for="medium">Medium</label>
+                <input type="radio" id="hard" name="difficulty" value="3">
+                <label for="hard">Hard</label>
+            </div>
+        </div>
+
+        <div class="language-part">
+            <label for="language">Language:</label>
+            <div class="content">
+                <select id="language">
+                    <option value="1">HTML</option>
+                    <option value="2">CSS</option>
+                    <option value="3">Javascript</option>
+                    <option value="4">Typescript</option>
+                    <option value="5">C++</option>
+                    <option value="6">C#</option>
+                    <option value="7">Java</option>
+                    <option value="8">Golang</option>
+                    <option value="9">Python</option>
+                    <option value="10">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="type-part">
+            <label for="type">Type:</label>
+            <div class="content">
+                <input type="radio" id="interview" name="type" value="1">
+                <label for="interview">Interview</label>
+                <input type="radio" id="work" name="type" value="2">
+                <label for="work">Work</label>
+                <input type="radio" id="homework" name="type" value="3">
+                <label for="homework">Homework</label>
+                <input type="radio" id="other" name="type" value="4">
+                <label for="other">Other</label>
+            </div>
+        </div>
+        </div>
+        <button type="submit">Subtmit</button>
+    </form>
+    <script src="/javascripts/add-question.js"></script>
+</section>

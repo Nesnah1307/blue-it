@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Blue IT</title>
-    <link rel="shortcut icon" href="./assets/images/logo.jpg" />
+    <link rel="icon" href="./assets/images/logo.jpg" />
     <link rel="stylesheet" href="/stylesheets/normalize.css" />
     <link rel="stylesheet" href="/stylesheets/login.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/tablist.css" />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -50,7 +50,7 @@
             </span>
         </div>
         <div class="uploadBtn">
-            <a href="/dashboard/addQuestion">Upload</a>
+            <a href="/dashboard/add-question">Upload</a>
         </div>
 
 
@@ -59,12 +59,11 @@
     <main>
         {{{body}}}
     </main>
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="/javascripts/menu.js"></script>
+{{#if loggedIn}}
 <script src="/javascripts/logout.js"></script>
+{{/if}}
 
 </html>
