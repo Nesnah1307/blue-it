@@ -102,7 +102,7 @@ router.get('/questions/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('single-post.handlebars', {
+      res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn,
       });
