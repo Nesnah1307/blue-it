@@ -360,6 +360,82 @@ main > * {
 /* add question  */
 .new-question {
   background-color: white;
+  font-size: 13px;
+}
+
+.new-question p {
+  padding: 10px;
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+
+#addQuestion {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#addQuestion > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#addQuestion > label {
+  flex: 10% 0 0;
+}
+
+#addQuestion .content {
+  flex: 80% 0 0;
+}
+
+#addQuestion > div > label:before {
+  content: '*';
+  color: red;
+}
+
+.difficulty-part .content {
+  display: flex;
+  align-items: center;
+}
+
+.difficulty-part .content > input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.difficulty-part .content > label {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.title-part input {
+  padding: 10px;
+  height: 30px;
+  width: 100%;
+  border: 1px solid rgb(241, 241, 241);
+}
+
+.answer-part textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid rgb(241, 241, 241);
+  outline: none;
+  resize: none;
+  padding: 10px;
+}
+
+.language-part select {
+  border: 1px solid rgb(241, 241, 241);
+  padding: 5px;
+}
+
+#addQuestion button {
+  border: none;
+  background-color: rgb(6, 158, 218);
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 @media screen and (min-width: 600px) {
