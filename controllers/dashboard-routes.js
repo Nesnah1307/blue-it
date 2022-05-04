@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
   Post.findAll({
     where: {
       // use the ID from the session
-      creator_id: 1,
+      creator_id: req.session.user_id,
     },
     attributes: ['id', 'title', 'answer', 'created_at'],
     include: [
