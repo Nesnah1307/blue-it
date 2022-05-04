@@ -44,10 +44,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
   res.render('login');
 });
 
@@ -95,5 +95,20 @@ router.get('/questions/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+
+router.get('/addQuestion', (req, res) => {
+  res.render('addQuestion')
+})
+
+router.get('/editQuestion', (req, res) => {
+  res.render('editQuestion')
+})
+
+
 
 module.exports = router;
