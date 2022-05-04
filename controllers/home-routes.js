@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Star } = require('../models');
+const { Post, User, Comment, Star, Type, Language, Difficulty } = require('../models');
 
 router.get('/', (req, res) => {
   Post.findAll({
@@ -59,17 +59,33 @@ router.get('/questions/:id', (req, res) => {
     attributes: [
       'id',
       'title',
-      'created_at',
+      'answer',
+      'type_id',
+      'language_id',
+      'difficulty_id',
+      'creator_id'
       [sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'title', 'answer', 'type_id'],
         include: {
           model: User,
           attributes: ['username']
         }
+      },
+      {
+        model: Type,
+        attributes: ['id', 'name']
+      },
+      {
+        model: Language,
+        attributes: ['id', 'name']
+      },
+      {
+        model: Difficulty,
+        attributes: ['id', 'name']
       },
       {
         model: User,
