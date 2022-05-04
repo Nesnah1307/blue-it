@@ -1,8 +1,6 @@
 const router = require('express').Router();
-const { route } = require('express/lib/router');
-const sequelize = require('../config/connection');
 const { Post, User, Comment, Star, Type, Language, Difficulty } = require('../models');
-
+const sequelize = require('../config/connection');
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -67,26 +65,27 @@ router.get('/questions/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'title', 'answer', 'type_id', 'language_id', 'difficulty_id', 'creator_id'[(sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count')]],
+    attributes: ['id', 'title', 'answer'],
     include: [
       {
         model: Comment,
+        attributes: ['id', 'content'],
         include: {
           model: User,
-          attributes: ['username'],
+          attributes: ['id', 'username'],
         },
       },
       {
         model: Type,
-        attributes: ['id', 'name'],
+        attributes: ['name'],
       },
       {
         model: Language,
-        attributes: ['id', 'name'],
+        attributes: ['name'],
       },
       {
         model: Difficulty,
-        attributes: ['id', 'name'],
+        attributes: ['name'],
       },
       {
         model: User,
@@ -99,13 +98,8 @@ router.get('/questions/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-
       const post = dbPostData.get({ plain: true });
-
-      res.render('single-post', {
-        post,
-        loggedIn: req.session.loggedIn,
-      });
+      res.render('single-post', post);
     })
     .catch(err => {
       console.log(err);

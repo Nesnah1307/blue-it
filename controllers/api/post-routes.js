@@ -48,6 +48,52 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ['id', 'title', 'answer'],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'content'],
+        include: {
+          model: User,
+          attributes: ['id','username'],
+        },
+      },
+      {
+        model: Type,
+        attributes: ['name'],
+      },
+      {
+        model: Language,
+        attributes: ['name'],
+      },
+      {
+        model: Difficulty,
+        attributes: ['name'],
+      },
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.post('/', (req, res) => {
   Post.create({
     ...req.body,

@@ -200,6 +200,11 @@ main > * {
 .post-head h3 {
   margin-bottom: 20px;
   font-size: 15px;
+  color: black;
+}
+
+.post-head:hover h3 {
+  color: rgb(6, 158, 218);
 }
 
 .post-body > * {
