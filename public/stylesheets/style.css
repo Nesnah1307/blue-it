@@ -357,6 +357,11 @@ main > * {
   padding: 15px;
 }
 
+/* add question  */
+.new-question {
+  background-color: white;
+}
+
 @media screen and (min-width: 600px) {
   .menu {
     margin-left: 20px;
