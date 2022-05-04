@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       'type_id',
       'language_id',
       'difficulty_id',
-      'creator_id'
+      'creator_id',
       [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count']
     ],
     include: [
@@ -63,7 +63,7 @@ router.get('/questions/:id', (req, res) => {
       'type_id',
       'language_id',
       'difficulty_id',
-      'creator_id'
+      'creator_id',
       [sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count']
     ],
     include: [
