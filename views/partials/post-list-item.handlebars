@@ -1,23 +1,24 @@
 <div class="post">
     <div class="post-head">
-        <h3>Title</h3>
+        <h3>{{title}}</h3>
     </div>
     <div class="post-body">
         <div class="info-row">
-            <span class="post-type">post.type</span>
-            <span class="post-language">post.language</span>
+            <span class="post-type">{{type.name}}</span>
+            <span class="post-language">{{language.name}}</span>
         </div>
         <div class="info-row2">
-            <span class="difficulty">Easy |</span>
-            <span class="postData">2022-05-03</sp>
+            <span class="difficulty">
+               Level: {{difficulty.name}} |</span>
+            <span class="postData">{{format_date created_at}}</sp>
         </div>
         <div class="data-row">
-            <div class="star">
+            <div class="star" alt="add to your collection">
                 <div class="data_icon">
                     <img src="assets/post_icons/eye.svg" alt="">
                 </div>
                 <span>
-                    3
+                    {{encounter_count}}
                 </span>
             </div>
             <div class="comment">
@@ -25,7 +26,7 @@
                     <img src="assets/post_icons/comment.svg" alt="">
                 </div>
                 <span>
-                    4
+                    {{comments.length}}
                 </span>
             </div>
             <div class="star">
@@ -33,7 +34,7 @@
                     <img src="assets/post_icons/star.svg" alt="">
                 </div>
                 <span>
-                    2
+                    {{star_count}}
                 </span>
             </div>
         </div>
