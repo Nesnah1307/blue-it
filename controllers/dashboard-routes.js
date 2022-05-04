@@ -1,13 +1,20 @@
 const router = require('express').Router();
 const { Post, User, Comment, Star, Type, Language, Difficulty } = require('../models');
-
+const sequelize = require('../config/connection');
 router.get('/', (req, res) => {
   Post.findAll({
     where: {
       // use the ID from the session
       creator_id: req.session.user_id,
     },
-    attributes: ['id', 'title', 'answer', 'created_at'],
+    attributes: [
+      'id',
+      'title',
+      'answer',
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count'],
+      [sequelize.literal('(SELECT COUNT(*) FROM encounter WHERE post.id = encounter.post_id)'), 'encounter_count'],
+    ],
     include: [
       {
         model: Comment,
@@ -37,14 +44,16 @@ router.get('/', (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts });
+      res.render('dashboard', {
+        posts,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 router.get('/add-question', (req, res) => {
   if (!req.session.loggedIn) {
