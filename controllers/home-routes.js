@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { route } = require('express/lib/router');
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Star, Type, Language, Difficulty } = require('../models');
 
@@ -8,33 +9,43 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'answer',
-      'type_id',
-      'language_id',
-      'difficulty_id',
-      'creator_id'
-      [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count']
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count'],
+      [sequelize.literal('(SELECT COUNT(*) FROM encounter WHERE post.id = encounter.post_id)'), 'encounter_count'],
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'content', 'post_id', 'user_id'],
+        attributes: ['content', 'user_id'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
+      },
+      {
+        model: Type,
+        attributes: ['name'],
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+      {
+        model: Difficulty,
+        attributes: ['name'],
+      },
+      {
+        model: Language,
+        attributes: ['name'],
+      },
+    ],
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
-      res.render('homepage.handlebars', {
+      res.render('homepage', {
         posts,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch(err => {
@@ -54,43 +65,34 @@ router.get('/login', (req, res) => {
 router.get('/questions/:id', (req, res) => {
   Post.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
-    attributes: [
-      'id',
-      'title',
-      'answer',
-      'type_id',
-      'language_id',
-      'difficulty_id',
-      'creator_id'
-      [sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count']
-    ],
+    attributes: ['id', 'title', 'answer', 'type_id', 'language_id', 'difficulty_id', 'creator_id'[(sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count')]],
     include: [
       {
         model: Comment,
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: Type,
-        attributes: ['id', 'name']
+        attributes: ['id', 'name'],
       },
       {
         model: Language,
-        attributes: ['id', 'name']
+        attributes: ['id', 'name'],
       },
       {
         model: Difficulty,
-        attributes: ['id', 'name']
+        attributes: ['id', 'name'],
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+    ],
   })
     .then(dbPostData => {
       if (!dbPostData) {
@@ -102,7 +104,7 @@ router.get('/questions/:id', (req, res) => {
 
       res.render('single-post.handlebars', {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
       });
     })
     .catch(err => {
@@ -110,6 +112,5 @@ router.get('/questions/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

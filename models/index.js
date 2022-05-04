@@ -1,4 +1,3 @@
-const { associations } = require('./Comment');
 const Comment = require('./Comment');
 const Difficulty = require('./Difficulty');
 const Encounter = require('./Encounter');
