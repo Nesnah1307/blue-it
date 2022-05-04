@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
-      res.render('homepage', {
+      res.render('homepage.handlebars', {
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -69,7 +69,6 @@ router.get('/questions/:id', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'title', 'answer', 'type_id'],
         include: {
           model: User,
           attributes: ['username']
@@ -101,7 +100,7 @@ router.get('/questions/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('single-post', {
+      res.render('single-post.handlebars', {
         post,
         loggedIn: req.session.loggedIn
       });
@@ -111,20 +110,6 @@ router.get('/questions/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-
-router.get('/dashboard', (req, res) => {
-  res.render('dashboard');
-});
-
-router.get('/addQuestion', (req, res) => {
-  res.render('addQuestion')
-})
-
-router.get('/editQuestion', (req, res) => {
-  res.render('editQuestion')
-})
-
 
 
 module.exports = router;
