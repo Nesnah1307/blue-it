@@ -406,16 +406,19 @@ main > * {
   color: red;
 }
 
-.difficulty-part .content {
+.difficulty-part .content,
+.type-part .content {
   display: flex;
   align-items: center;
 }
 
-.difficulty-part .content > input {
+.difficulty-part .content > input,
+.type-part .content > input {
   margin-right: 5px;
   cursor: pointer;
 }
-.difficulty-part .content > label {
+.difficulty-part .content > label,
+.type-part .content > label {
   margin-right: 15px;
   cursor: pointer;
 }

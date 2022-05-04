@@ -45,20 +45,25 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/addQuestion', (req, res) => {
-  if (req.session.loggedIn) {
+
+router.get('/add-question', (req, res) => {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('addQuestion');
+  res.render('add-question', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
-router.get('/editQuestion', (req, res) => {
-  if (req.session.loggedIn) {
+router.get('/edit-question', (req, res) => {
+  if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('editQuestion');
+  res.render('edit-question', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;
