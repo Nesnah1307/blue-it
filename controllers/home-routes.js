@@ -9,17 +9,9 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'answer',
-<<<<<<< HEAD
-      'type_id',
-      'language_id',
-      'difficulty_id',
-      'creator_id',
-      [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count']
-=======
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM star WHERE post.id = star.post_id)'), 'star_count'],
       [sequelize.literal('(SELECT COUNT(*) FROM encounter WHERE post.id = encounter.post_id)'), 'encounter_count'],
->>>>>>> develop
     ],
     include: [
       {
@@ -75,20 +67,7 @@ router.get('/questions/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-<<<<<<< HEAD
-    attributes: [
-      'id',
-      'title',
-      'answer',
-      'type_id',
-      'language_id',
-      'difficulty_id',
-      'creator_id',
-      [sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count']
-    ],
-=======
     attributes: ['id', 'title', 'answer', 'type_id', 'language_id', 'difficulty_id', 'creator_id'[(sequelize.literal('(SELECT COUNT(*) FROM questions WHERE post.id = questions.post_id)'), 'questions_count')]],
->>>>>>> develop
     include: [
       {
         model: Comment,
