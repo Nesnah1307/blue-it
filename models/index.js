@@ -5,7 +5,7 @@ const Language = require('./language');
 const Post = require('./post');
 const Star = require('./star');
 const Type = require('./type');
-const User = require('./User.js');
+const User = require('./user.js');
 
 
 // User - Post
@@ -23,6 +23,7 @@ User.belongsToMany(Post, {
   as: 'encountered_post',
   foreignKey: 'user_id',
 });
+
 
 Post.belongsToMany(User, {
   through: Encounter,
