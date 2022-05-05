@@ -10,14 +10,13 @@ const PORT = process.env.PORT || 3001;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  // set in .env as cookie='I stole the cookie'
-  secret: process.env.cookie,
+  secret: 'I stole the cookie',
   cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
