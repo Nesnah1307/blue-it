@@ -65,10 +65,12 @@ router.get('/questions/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
+    order: [[Comment, 'created_at', 'DESC']],
     attributes: ['id', 'title', 'answer'],
     include: [
       {
         model: Comment,
+        order: ['id', 'DESC'],
         attributes: ['id', 'content', 'created_at'],
         include: {
           model: User,
@@ -98,7 +100,7 @@ router.get('/questions/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-
+      return res.json(dbPostData);
       const post = dbPostData.get({ plain: true });
 
       res.render('general-post', {
