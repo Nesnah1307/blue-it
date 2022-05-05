@@ -7,6 +7,7 @@ const Star = require('./star');
 const Type = require('./type');
 const User = require('./user');
 
+
 // User - Post
 User.hasMany(Post, {
   foreignKey: 'creator_id',
