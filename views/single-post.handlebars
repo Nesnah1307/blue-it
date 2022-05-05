@@ -14,38 +14,58 @@
     </div>
     <div class="question-action">
 
-        <div class="star">
+        <div class="met">
             <div class="data_icon">
-                <img src="../assets/post_icons/eye.svg" alt="">
+                <img src="/assets/post_icons/eye.svg" alt="eye icon">
             </div>
             <span>
                 Met
             </span>
         </div>
-        <div class="comment">
-            <div class="data_icon">
-                <img src="../assets/post_icons/comment.svg" alt="">
-            </div>
-            <span>
-                Comment
-            </span>
-        </div>
+
         <div class="star">
             <div class="data_icon">
-                <img src="../assets/post_icons/star.svg" alt="">
+                <img src="/assets/post_icons/star.svg" alt="star icon">
             </div>
             <span>
                 Star
             </span>
         </div>
-        <div class="share">
+
+        <div class="edit">
+
+            <a class="data_icon" href="/edit-question/{{id}}">
+                <img src="/assets/post_icons/edit.svg" alt="edit icon">
+            </a>
+            <span>
+                Edit
+            </span>
+
+        </div>
+        <div class="delete">
             <div class="data_icon">
-                <img src="../assets/post_icons/share.svg" alt="">
+                <img src="/assets/post_icons/delete.svg" alt="delete icon">
+            </div>
+            <span>
+                Delete
+            </span>
+        </div>
+        {{!-- <div class="share">
+            <div class="data_icon">
+                <img src="/assets/post_icons/share.svg" alt="share icon">
             </div>
             <span>
                 Share
             </span>
-        </div>
+        </div> --}}
+        {{!-- <div class="action">
+            <div class="data_icon">
+                <img src="/assets/post_icons/ellipsis.svg" alt="sllipsis icon">
+            </div>
+            <span>
+                Action
+            </span>
+        </div> --}}
     </div>
 
 
@@ -75,7 +95,9 @@
 {{!-- used '.star-btn' for activelistener --}}
 
 <script src="/javascripts/comment.js"></script>
-
+{{#if loggedIn}}
+<script src="/javascripts/delete-question.js"></script>
+{{/if}}
 {{!-- will add star js later --}}
 {{!--
 <script src="/javascripts/star.js"></script> --}}
