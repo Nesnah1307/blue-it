@@ -1,10 +1,10 @@
-const Comment = require('./Comment');
-const Difficulty = require('./Difficulty');
-const Encounter = require('./Encounter');
-const Language = require('./Language');
-const Post = require('./Post');
-const Star = require('./Star');
-const Type = require('./Type');
+const Comment = require('./comment');
+const Difficulty = require('./difficulty');
+const Encounter = require('./encounter');
+const Language = require('./language');
+const Post = require('./post');
+const Star = require('./star');
+const Type = require('./type');
 const User = require('./User');
 
 // User - Post
@@ -41,7 +41,7 @@ Post.belongsToMany(User, {
   foreignKey: 'post_id',
 });
 
-// Post - Comment 
+// Post - Comment
 Post.hasMany(Comment, {
   foreignKey: 'post_id',
 });
@@ -50,8 +50,7 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id',
 });
 
-
-// User - Comment 
+// User - Comment
 User.hasMany(Comment, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL',
@@ -61,7 +60,7 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-// Post - Difficulty 
+// Post - Difficulty
 Difficulty.hasMany(Post, {
   foreignKey: 'difficulty_id',
   onDelete: 'SET NULL',
@@ -71,7 +70,7 @@ Post.belongsTo(Difficulty, {
   foreignKey: 'difficulty_id',
 });
 
-// Post - Type 
+// Post - Type
 Type.hasMany(Post, {
   foreignKey: 'type_id',
   onDelete: 'SET NULL',
@@ -81,7 +80,7 @@ Post.belongsTo(Type, {
   foreignKey: 'type_id',
 });
 
-// Post - Language 
+// Post - Language
 Language.hasMany(Post, {
   foreignKey: 'language_id',
   onDelete: 'SET NULL',
@@ -90,11 +89,6 @@ Language.hasMany(Post, {
 Post.belongsTo(Language, {
   foreignKey: 'language_id',
 });
-
-
-
-
-
 
 module.exports = {
   Comment,
