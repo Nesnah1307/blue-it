@@ -1,11 +1,11 @@
-const Comment = require('./Comment');
-const Difficulty = require('./Difficulty');
-const Encounter = require('./Encounter');
-const Language = require('./Language');
-const Post = require('./Post');
-const Star = require('./Star');
-const Type = require('./Type');
-const User = require('./User');
+const Comment = require('./comment');
+const Difficulty = require('./difficulty');
+const Encounter = require('./encounter');
+const Language = require('./language');
+const Post = require('./post');
+const Star = require('./star');
+const Type = require('./type');
+const User = require('./user');
 
 // User - Post
 User.hasMany(Post, {

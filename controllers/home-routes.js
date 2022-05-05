@@ -100,7 +100,6 @@ router.get('/questions/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      return res.json(dbPostData);
       const post = dbPostData.get({ plain: true });
 
       res.render('general-post', {
