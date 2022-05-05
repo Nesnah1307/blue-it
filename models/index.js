@@ -5,7 +5,7 @@ const Language = require('./language');
 const Post = require('./post');
 const Star = require('./star');
 const Type = require('./type');
-const User = require('./user.js');
+const User = require('./User.js');
 
 
 // User - Post
