@@ -1,5 +1,5 @@
 function deletePostHandler() {
-  const id = location.pathname.split('/')[2];
+  const id = location.pathname.split('/')[3];
   fetch(`/api/posts/${id}`, {
     method: 'DELETE',
   }).then(response => {

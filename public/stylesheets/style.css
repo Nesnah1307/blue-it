@@ -349,6 +349,7 @@ main > * {
 .question-action span {
   font-size: 13px;
   line-height: 25px;
+  color: black;
 }
 
 /* comment section in single-post */
