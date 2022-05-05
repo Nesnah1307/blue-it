@@ -101,7 +101,7 @@ router.get('/questions/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('homepage-post', {
+      res.render('general-post', {
         ...post,
         loggedIn: req.session.loggedIn,
       });

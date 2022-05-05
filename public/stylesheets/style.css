@@ -342,7 +342,9 @@ main > * {
   height: 25px;
 }
 
-
+.edit a {
+  display: flex;
+}
 
 .question-action span {
   font-size: 13px;
