@@ -10,6 +10,7 @@ function generateData() {
         email: faker.internet.email(),
         password: '1234',
         membership: Math.floor(Math.random() * 2),
+        avatar: faker.image.avatar(),
       })
     );
   }

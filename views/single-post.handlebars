@@ -52,26 +52,22 @@
 
 </section>
 <section class="comment-section">
+    <div class="leave-comment">
+        <form id="commentForm">
+            <textarea></textarea>
+            <div class="button">
+                <button type="submit">Comment</button>
+            </div>
+        </form>
+    </div>
     <div class="comment-action">
-        <span>5 Answers</span>
-        <button>Comment</button>
+        <span>{{comments.length}} {{format_plural "Answer" comments.length}}</span>
+
     </div>
     <div class="comment-list">
-        <div class="single-comment">
-            <div class="comment-head">
-                <div>username</div>
-                <div>created date</div>
-
-
-
-            </div>
-            <div class="comment-body">
-                <p>comment</p>
-            </div>
-            <div class="comment-bottom">
-
-            </div>
-        </div>
+        {{#each comments as |comment|}}
+        {{>single-comment comment}}
+        {{/each}}
     </div>
 </section>
 

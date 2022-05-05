@@ -1,5 +1,9 @@
+{{#if posts.length}}
 <section class="post-list">
     {{#each posts as |post|}}
     {{> post-list-item post}}
     {{/each}}
 </section>
+{{else}}
+<p>Wow, you have no posts yet.</p>
+{{/if}}

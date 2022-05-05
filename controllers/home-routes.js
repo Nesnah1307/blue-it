@@ -69,10 +69,10 @@ router.get('/questions/:id', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'content'],
+        attributes: ['id', 'content', 'created_at'],
         include: {
           model: User,
-          attributes: ['id', 'username'],
+          attributes: ['id', 'username', 'avatar'],
         },
       },
       {
@@ -98,8 +98,13 @@ router.get('/questions/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
+
       const post = dbPostData.get({ plain: true });
-      res.render('single-post', post);
+
+      res.render('single-post', {
+        ...post,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch(err => {
       console.log(err);
