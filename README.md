@@ -12,7 +12,11 @@ A website that allows the user to post and find answers to thier questions conce
 * Faker-js
 
 
-## Screenshot
+## Usage
+Visit the live page at: https://blue-it-dinosaur.herokuapp.com/
+
+Or if running locally, run 'npm start' in gitbash to start the server then visit http://localhost:3001/
+
 ![Screenshot](./public/assets/images/Screenshot.png)
 
 ## Website
