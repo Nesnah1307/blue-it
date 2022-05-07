@@ -1,0 +1,24 @@
+<div class="single-comment">
+    <div class="comment-head">
+        <div class="user_avatar">
+            <img src="{{user.avatar}}" alt="{{user.avatar}} user image">
+        </div>
+        <div class="user_info">
+            <div data-id="{{id}}">{{user.username}}</div>
+            <div class="post_date">{{format_post_date created_at}}</div>
+        </div>
+    </div>
+    <div class="comment-body">
+        <p>{{content}}</p>
+    </div>
+    <div class="comment-bottom">
+        <div class="vote">
+            <div class="vote_icon">
+                <img src="/assets/post_icons/thumb_up.svg" alt="thumb_up icon">
+            </div>
+            <span>2</span>
+        </div>
+        <button>reply</button>
+    </div>
+</div>
+

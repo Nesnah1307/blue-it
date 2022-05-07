@@ -1,0 +1,103 @@
+<section class="post-info">
+    <div class="question-summary">
+        <span>{{difficulty.name}}</span>
+        <span class="splitter"></span>
+        <span class="post-type">{{type.name}}</span>
+        <span class="splitter"></span>
+        <span class="post-language">{{language.name}}</span>
+    </div>
+    <div class="question-head">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="question-body">
+        {{answer}}
+    </div>
+    <div class="question-action">
+
+        <div class="met">
+            <div class="data_icon">
+                <img src="/assets/post_icons/eye.svg" alt="eye icon">
+            </div>
+            <span>
+                Met
+            </span>
+        </div>
+
+        <div class="star">
+            <div class="data_icon">
+                <img src="/assets/post_icons/star.svg" alt="star icon">
+            </div>
+            <span>
+                Star
+            </span>
+        </div>
+
+        {{!-- <div class="edit">
+
+            <a class="data_icon" href="/dashboard/edit-question/{{id}}">
+                <img src="/assets/post_icons/edit.svg" alt="edit icon">
+            </a>
+            <span>
+                Edit
+            </span>
+
+        </div>
+        <div class="delete">
+            <div class="data_icon">
+                <img src="/assets/post_icons/delete.svg" alt="delete icon">
+            </div>
+            <span>
+                Delete
+            </span>
+        </div> --}}
+        <div class="share">
+            <div class="data_icon">
+                <img src="/assets/post_icons/share.svg" alt="share icon">
+            </div>
+            <span>
+                Share
+            </span>
+        </div>
+        {{!-- <div class="action">
+            <div class="data_icon">
+                <img src="/assets/post_icons/ellipsis.svg" alt="sllipsis icon">
+            </div>
+            <span>
+                Action
+            </span>
+        </div> --}}
+    </div>
+
+
+
+</section>
+<section class="comment-section">
+    <div class="leave-comment">
+        <form id="commentForm">
+            <textarea></textarea>
+            <div class="button">
+                <button type="submit">Comment</button>
+            </div>
+        </form>
+    </div>
+    <div class="comment-action">
+        <span>{{comments.length}} {{format_plural "Answer" comments.length}}</span>
+
+    </div>
+    <div class="comment-list">
+        {{#each comments as |comment|}}
+        {{>single-comment comment}}
+        {{/each}}
+    </div>
+</section>
+
+
+{{!-- used '.star-btn' for activelistener --}}
+
+<script src="/javascripts/comment.js"></script>
+{{#if loggedIn}}
+<script src="/javascripts/delete-question.js"></script>
+{{/if}}
+{{!-- will add star js later --}}
+{{!--
+<script src="/javascripts/star.js"></script> --}}

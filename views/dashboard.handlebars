@@ -1,0 +1,16 @@
+{{#if posts.length}}
+<section class="post-list">
+    {{#each posts as |post|}}
+    <div class="post">
+        <div class="post-head">
+            <a href="/dashboard/questions/{{id}}">
+                <h3>{{title}}</h3>
+            </a>
+        </div>
+        {{> post-list-item post}}
+    </div>
+    {{/each}}
+</section>
+{{else}}
+<p>Wow, you have no posts yet.</p>
+{{/if}}

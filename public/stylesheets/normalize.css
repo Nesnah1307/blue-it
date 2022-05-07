@@ -1,0 +1,53 @@
+/* clear margin and padding  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(216, 234, 210);
+  margin: 0 auto;
+}
+
+html,
+textarea,
+input {
+  font-family: open sans;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: open sans;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: open sans;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: open sans;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: open sans;
+}
+
+/* clear element style  */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}

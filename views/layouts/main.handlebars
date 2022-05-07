@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Blue IT</title>
+    <link rel="icon" href="/assets/images/logo.jpg" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/tablist.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/images/header_logo.jpg" alt="Blue IT logo">
+            </a>
+        </div>
+
+        <div class="menu">
+            <div class="menu_small">
+                <img src="/assets/nav_icons/menu.svg" alt="menu icon">
+            </div>
+            <ul>
+                <li>
+                    <a href="/">Homepage</a>
+                </li>
+                <li>
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+                {{#if loggedIn}}
+                <li id="logout">
+                    <a href="javascript:;">Logout</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                {{/if}}
+
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search Questions">
+            <span class="search-icon">
+                <img src="/assets/nav_icons/search.svg" alt="">
+            </span>
+        </div>
+        <div class="uploadBtn">
+            <a href="/dashboard/add-question">Upload</a>
+        </div>
+
+
+
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+</body>
+
+<script src="/javascripts/menu.js"></script>
+{{#if loggedIn}}
+<script src="/javascripts/logout.js"></script>
+{{/if}}
+
+</html>
