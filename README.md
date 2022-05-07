@@ -23,7 +23,7 @@ Or if running locally, run 'npm start' in gitbash to start the server then visit
 https://github.com/Nesnah1307/blue-it
 
 ## Contribution
-* Brian Hernandez: 
+* Brian Hernandez: https://github.com/Brian7950
 * Mack Hansen: https://github.com/Nesnah1307
 * Matthew Rogers: https://github.com/Vrentadax
-* Neo Ji: 
+* Neo Ji: https://github.com/fullstackneo
