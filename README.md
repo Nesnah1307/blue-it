@@ -24,6 +24,6 @@ https://github.com/Nesnah1307/blue-it
 
 ## Contribution
 * Brian Hernandez: 
-* Mack Hanson: https://github.com/Nesnah1307
+* Mack Hansen: https://github.com/Nesnah1307
 * Matthew Rogers: https://github.com/Vrentadax
 * Neo Ji: 
